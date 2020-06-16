@@ -1,0 +1,39 @@
+body {
+    height: 100vh;
+     max-height: auto ;
+     width: 100%;
+      margin:0;
+      position: absolute;
+      display: grid;
+      grid-template-columns: 3fr 1fr;
+      grid-template-rows: 3fr 1fr;
+      grid-template-areas:
+          "main sidebar"
+          "footer footer";
+     
+  }
+
+  aside {
+    grid-area: sidebar;
+    background-color: rgb(37, 117, 197);
+    align-self: stretch;
+}
+section:nth-of-type(1) {
+  grid-area: sect1;
+  background-color: #B3D8FD;
+}
+
+
+main {
+    grid-area: main;
+    background-color: rgb(76, 161, 247);
+    align-self: stretch;
+}
+
+footer {
+    grid-area: footer;
+    background-color: rgb(88, 207, 236);
+    align-self: stretch;
+    padding: 1em;
+}
+
