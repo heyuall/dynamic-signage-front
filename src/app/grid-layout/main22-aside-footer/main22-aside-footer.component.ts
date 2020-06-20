@@ -7,7 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Main22AsideFooterComponent implements OnInit {
 
-  constructor() { }
+  constructor() { 
+    const el = document.getElementById('nb-global-spinner');
+    if (el) {
+      el.style['display'] = 'none';
+    }
+  }
 
   ngOnInit(): void {
   }
