@@ -58,6 +58,10 @@ const components = [
     ChartModule,
     NbCardModule,
   ],
+  exports: [
+    ...routedComponents, ...components
+
+  ],
   declarations: [...routedComponents, ...components],
 })
-export class ChartsModule {}
+export class ChartsModule { }

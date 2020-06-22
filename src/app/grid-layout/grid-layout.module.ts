@@ -11,15 +11,33 @@ import { Main23Component } from './main23/main23.component';
 import { Main33Component } from './main33/main33.component';
 import { GridLayoutComponent } from './grid-layout.component';
 import { GridLayoutRoutingModule } from './grid-layout-routing.module';
-
-
+import { ChartsModule } from '../pages/charts/charts.module';
+import {
+  NbButtonModule,
+  NbCardModule,
+  NbProgressBarModule,
+  NbTabsetModule,
+  NbUserModule,
+  NbIconModule,
+  NbSelectModule,
+  NbListModule,
+} from '@nebular/theme';
 
 
 @NgModule({
   imports: [
     RouterModule,
     CommonModule,
-    GridLayoutRoutingModule
+    GridLayoutRoutingModule,
+    ChartsModule,
+    NbButtonModule,
+    NbCardModule,
+    NbProgressBarModule,
+    NbTabsetModule,
+    NbUserModule,
+    NbIconModule,
+    NbSelectModule,
+    NbListModule,
   ],
   declarations: [
     Main22AsideFooterComponent,

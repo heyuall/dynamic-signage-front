@@ -6,13 +6,15 @@ import { NotFoundComponent } from '../pages/miscellaneous/not-found/not-found.co
 import { Main22AsideFooterComponent } from './main22-aside-footer/main22-aside-footer.component';
 import { GridLayoutComponent } from './grid-layout.component';
 import { GridLayoutModule } from './grid-layout.module';
+import { Main22Component } from './main22/main22.component';
 const routes: Routes = [
     {
         path: '',
         component: GridLayoutComponent,
 
         children: [
-            { path: 'main22-aside-footer', component: Main22AsideFooterComponent }
+            { path: 'main22-aside-footer', component: Main22AsideFooterComponent },
+            {path:'main22',component:Main22Component}
         ],
     },
     {

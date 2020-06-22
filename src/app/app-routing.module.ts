@@ -45,6 +45,15 @@ export const routes: Routes = [
       },
     ],
   },
+  {
+    path: 'grid-layout',
+
+
+    loadChildren: () => import('./grid-layout/grid-layout.module')
+      .then(m => m.GridLayoutModule),
+
+  },
+
   { path: '', redirectTo: 'pages', pathMatch: 'full' },
   { path: '**', redirectTo: 'pages' },
 ];

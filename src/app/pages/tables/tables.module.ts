@@ -16,6 +16,9 @@ import { FsIconComponent } from './tree-grid/tree-grid.component';
     TablesRoutingModule,
     Ng2SmartTableModule,
   ],
+  exports:[
+    ...routedComponents,
+  ],
   declarations: [
     ...routedComponents,
     FsIconComponent,
