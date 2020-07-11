@@ -1,14 +1,15 @@
 import { LocalDataSource } from 'ng2-smart-table';
 import { Component, OnInit } from '@angular/core';
+import{LayoutPopupComponent}from '../layout-popup/layout-popup.component';
 
-import {  Type } from '@angular/core';
+import { Type } from '@angular/core';
 
 @Component({
   selector: 'ngx-afficheur',
   templateUrl: './afficheur.component.html',
   styleUrls: ['./afficheur.component.scss']
 })
-export class AfficheurComponent implements OnInit {
+export class AfficheurComponent {
 
   settings = {
     add: {
@@ -31,9 +32,9 @@ export class AfficheurComponent implements OnInit {
         title: 'Nom',
         filter: true
       },
-      reference:{
-        title:'Reference',
-        filter:true
+      reference: {
+        title: 'Reference',
+        filter: true
       },
       affect: {
         title: 'Affecter Layout',
@@ -42,13 +43,18 @@ export class AfficheurComponent implements OnInit {
           type: 'list', // Used to set dropdown list from database. 
           config: {
             list: [
-             
+
 
             ],
           },
         },
         filter: true
-      }
+      },
+      button: {
+        title: 'Button',
+        type: 'custom',
+        renderComponent: LayoutPopupComponent
+      },
     }
   };
 
@@ -62,7 +68,15 @@ export class AfficheurComponent implements OnInit {
 
 
 
-  ngOnInit(): void {
-  }
 
+
+  onDeleteConfirm(event): void {
+    if (window.confirm('Etes vous sûr de supprimer?')) {
+      event.confirm.resolve();
+    } else {
+      event.confirm.reject();
+    }
+
+
+  }
 }

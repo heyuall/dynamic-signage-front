@@ -1,0 +1,13 @@
+<div class="col-md-12 col-lg-6 col-xxxl-3">
+    <nb-card class="form-input-card">
+      <nb-card-header>Return Result From Dialog</nb-card-header>
+      <nb-card-body class="result-from-dialog">
+        <button nbButton (click)="open3()">Enter Name</button>
+        <br>
+        <h3 class="title">Names:</h3>
+        <ul>
+          <li *ngFor="let name of names">{{ name }}</li>
+        </ul>
+      </nb-card-body>
+    </nb-card>
+  </div>
