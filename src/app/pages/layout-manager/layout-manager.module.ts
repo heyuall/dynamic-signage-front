@@ -9,9 +9,12 @@ import { CommonModule } from '@angular/common';
 import { LayoutManagerComponent } from './layout-manager/layout-manager.component';
 import { TablesModule } from '../tables/tables.module';
 import {LayoutManagerRoutingModule} from './layout-manager-routing.module';
+
 // import {SmartTableComponent} from '../tables/smart-table/smart-table.component';
 
-
+// import { ButtonViewComponent } from '../button-view/button-view.component';
+// import { HelloComponent } from '../../hello.component';
+// import { InjiService } from '../../services/inji.service';
 @NgModule({
   declarations: [LayoutManagerComponent],
   imports: [
@@ -25,5 +28,7 @@ import {LayoutManagerRoutingModule} from './layout-manager-routing.module';
     Ng2SmartTableModule,
     LayoutManagerRoutingModule
   ]
+  // ,providers:       [ InjiService ],
+  // entryComponents: [ HelloComponent, ButtonViewComponent ]
 })
 export class LayoutManagerModule { }

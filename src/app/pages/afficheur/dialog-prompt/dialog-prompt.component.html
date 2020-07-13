@@ -1,4 +1,4 @@
-<p>dialog-prompt works!</p>
+<!-- <p>dialog-prompt works!</p>
 <nb-card>
     <nb-card-header>Enter your name</nb-card-header>
     <nb-card-body>
@@ -9,4 +9,20 @@
       <button nbButton status="success" (click)="submit(name.value)">Submit</button>
     </nb-card-footer>
   </nb-card>
-  
+   -->
+<nb-card >
+    <nb-card-header>Layout choisi: {{d}}</nb-card-header>
+    <nb-card-body>
+        <nb-radio-group [(value)]="d">
+            <nb-radio *ngFor="let d of data" [value]="d.name">
+                {{d.name}}
+            </nb-radio>
+
+        </nb-radio-group>
+    </nb-card-body>
+    <nb-card-footer>
+
+        <button  nbButton status="primary" (click)= "submit(d)">Valider</button>
+    </nb-card-footer>
+
+</nb-card>

@@ -18,13 +18,15 @@ import {
 
   NbCheckboxModule,
   NbDialogModule,
-
+  NbRadioModule,
   NbPopoverModule,
   NbSelectModule,
   NbTabsetModule,
   NbTooltipModule,
   NbWindowModule,
 } from '@nebular/theme';
+import { FormsModule } from '@angular/forms';
+
 
 // modules
 
@@ -35,14 +37,15 @@ import {
   imports: [
     CommonModule,
     AfficheurRoutingModule,
-    NbCardModule, NbIconModule, NbInputModule, NbTreeGridModule,
+    NbCardModule,
+     NbIconModule, NbInputModule, NbTreeGridModule,
     ThemeModule,
     Ng2SmartTableModule,
     NbButtonModule,
-
+    NbRadioModule,
     NbCheckboxModule,
     NbDialogModule,
-
+    FormsModule,
     NbPopoverModule,
     NbSelectModule,
     NbTabsetModule,

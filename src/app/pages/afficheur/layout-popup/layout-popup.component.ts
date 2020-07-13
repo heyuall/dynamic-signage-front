@@ -9,16 +9,17 @@ import { DialogPromptComponent } from '../dialog-prompt/dialog-prompt.component'
   templateUrl: './layout-popup.component.html',
   styleUrls: ['./layout-popup.component.scss']
 })
-export class LayoutPopupComponent implements OnInit {
+export class LayoutPopupComponent {
 
-  names : any[];
+ 
+ d:string;
 
   constructor(private dialogService: NbDialogService) { }
 
-  ngOnInit(): void {
-  }
+  
   open3() {
     this.dialogService.open(DialogPromptComponent)
-      .onClose.subscribe(name => name && this.names.push(name));
+      .onClose.subscribe(d => d && (this.d=d));
+     
   }
 }

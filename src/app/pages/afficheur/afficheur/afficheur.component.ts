@@ -36,33 +36,53 @@ export class AfficheurComponent {
         title: 'Reference',
         filter: true
       },
-      affect: {
+      // affect: {
+      //   title: 'Affecter Layout',
+      //   type: 'html',
+      //   editor: {
+      //     type: 'list', // Used to set dropdown list from database. 
+      //     config: {
+      //       list: [
+
+
+      //       ],
+      //     },
+      //   },
+      //   filter: true
+      // },
+      Layout : {
         title: 'Affecter Layout',
-        type: 'html',
-        editor: {
-          type: 'list', // Used to set dropdown list from database. 
-          config: {
-            list: [
-
-
-            ],
-          },
-        },
-        filter: true
-      },
-      button: {
-        title: 'Button',
         type: 'custom',
-        renderComponent: LayoutPopupComponent
+        renderComponent: LayoutPopupComponent,
+        filter: false
       },
     }
   };
 
-  source: LocalDataSource;
-  data: [];
+  
+  data = [
+    {
+      id : 1, 
+      name : "afficheur1",
+      reference: "ref1",
+      Layout: "layout1"
+    },
+    {
+      id : 2,
+      name : "afficheur2",
+      reference: "ref2",
+      Layout: "layout1"
+    },
+    {
+      id : 3,
+      name : "afficheur3",
+      reference: "ref3",
+      Layout: "layout1"
+    },
+  ];
 
   constructor() {
-    this.source = new LocalDataSource(this.data); // create the source
+    // this.source = this.data; // create the source
   }
 
 

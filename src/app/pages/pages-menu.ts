@@ -4,7 +4,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
   {
     title: 'Afficheurs',
     icon: 'monitor-outline',
-    link: '/pages/afficheurs',
+    link: '/pages/afficheur',
     home: true,
   },
   {
@@ -12,14 +12,14 @@ export const MENU_ITEMS: NbMenuItem[] = [
     icon: 'layout-outline',
     link: '/pages/layout-manager'
   },
-  {
-    title: 'Components',
-    icon: 'pie-chart-outline',
-    link: '/pages/layout'
-  },
+  // {
+  //   title: 'Components',
+  //   icon: 'pie-chart-outline',
+  //   link: '/pages/layout'
+  // },
 
   // {
-  //   title: 'FEATURES',
+  //   title: 'Components',
   //   group: true,
   // },
 
@@ -29,24 +29,24 @@ export const MENU_ITEMS: NbMenuItem[] = [
   //   icon: 'browser-outline',
   //   link: ''
   // },
-  // {
-  //   title: 'Charts',
-  //   icon: 'pie-chart-outline',
-  //   children: [
-  //     {
-  //       title: 'Echarts',
-  //       link: '/pages/charts/echarts',
-  //     },
-  //     {
-  //       title: 'Charts.js',
-  //       link: '/pages/charts/chartjs',
-  //     },
-  //     {
-  //       title: 'D3',
-  //       link: '/pages/charts/d3',
-  //     },
-  //   ],
-  // },
+  {
+    title: 'Components',
+    icon: 'pie-chart-outline',
+    children: [
+      {
+        title: 'Graphique',
+        link: '/pages/charts/echarts',
+      },
+      {
+        title: 'Message',
+        link: '/pages/charts/chartjs',
+      },
+      {
+        title: 'Notification',
+        link: '/pages/charts/d3',
+      },
+    ],
+  },
   // {
   //   title: 'Editors',
   //   icon: 'text-outline',

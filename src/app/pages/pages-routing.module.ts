@@ -6,7 +6,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { ECommerceComponent } from './e-commerce/e-commerce.component';
 import { NotFoundComponent } from './miscellaneous/not-found/not-found.component';
 import { LayoutManagerComponent } from './layout-manager/layout-manager/layout-manager.component';
-
+import {AfficheurComponent} from './afficheur/afficheur/afficheur.component';
 const routes: Routes = [{
   path: '',
   component: PagesComponent,
@@ -72,6 +72,10 @@ const routes: Routes = [{
     {
       path: 'layout-manager',
       component: LayoutManagerComponent,
+    },
+    {
+      path: 'afficheur',
+      component: AfficheurComponent,
     },
     {
       path: '',
