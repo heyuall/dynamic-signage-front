@@ -1,0 +1,48 @@
+<div class="lists row">
+    <div class="col-md-12 col-lg-6 col-xxxl-6">
+        <nb-card class="list-card" size="small">
+            <nb-card-header>Atelier</nb-card-header>
+            <nb-list>
+                <nb-list-item *ngFor="let notification of notifications">
+                    <nb-user [name]="notification.ligne" [title]="notification.value">
+                    </nb-user>
+                </nb-list-item>
+            </nb-list>
+        </nb-card>
+    </div>
+
+    <div class="col-md-12 col-lg-6 col-xxxl-6">
+        <nb-card class="list-card" size="small">
+            <nb-card-header>Ligne 1</nb-card-header>
+            <nb-list>
+                <nb-list-item *ngFor="let notification of Ligne1">
+                   {{notification.value}}
+                </nb-list-item>
+            </nb-list>
+        </nb-card>
+    </div>
+
+    <div class="col-md-12 col-lg-6 col-xxxl-6">
+        <nb-card class="list-card" size="small">
+            <nb-card-header>Ligne 2</nb-card-header>
+            <nb-list>
+                <nb-list-item *ngFor="let notification of Ligne2">
+                    {{notification.value}}
+                </nb-list-item>
+            </nb-list>
+        </nb-card>
+    </div>
+
+    <div class="col-md-12 col-lg-6 col-xxxl-6">
+        <nb-card class="list-card" size="small">
+            <nb-card-header>Ligne 3</nb-card-header>
+            <nb-list>
+                <nb-list-item *ngFor="let notification of Ligne3">
+                    {{notification.value}}
+                </nb-list-item>
+            </nb-list>
+        </nb-card>
+    </div>
+
+
+</div>
