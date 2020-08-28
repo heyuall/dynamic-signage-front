@@ -23,7 +23,7 @@ import {
   NbListModule,
 } from '@nebular/theme';
 
-
+import{ComponentsModule} from '../pages/components/components.module'
 @NgModule({
   imports: [
     RouterModule,
@@ -38,6 +38,7 @@ import {
     NbIconModule,
     NbSelectModule,
     NbListModule,
+    ComponentsModule
   ],
   declarations: [
     Main22AsideFooterComponent,

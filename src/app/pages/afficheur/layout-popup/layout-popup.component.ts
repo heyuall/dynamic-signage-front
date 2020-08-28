@@ -19,7 +19,7 @@ export class LayoutPopupComponent {
   
   open3() {
     this.dialogService.open(DialogPromptComponent)
-      .onClose.subscribe(d => d && (this.d=d));
+      .onClose.subscribe(d => this.d=d);
      
   }
 }

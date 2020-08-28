@@ -1,0 +1,37 @@
+
+<div class="container color-dark">
+    <div class="col">
+      <p> <strong> Ajouter un Message </strong> </p>
+    </div>
+    <div class="col">
+      <p  > <strong> Vos Messages ({{messageCount}}) </strong> </p>
+      
+    </div>
+  </div>
+  
+  <div class="container color-light" [@messages]="messages.length">
+    <div class="col">
+      <p > Ajouter votre message à diffuser ici: </p>
+  
+      <form>
+        <input type="text" class="txtt" name="item" placeholder="Message..."  [(ngModel)]="messageText" >
+       
+  
+        <input type="submit" class="btnn" [value]="btnText" (click)="addItem()">
+      </form>
+    </div>
+    <div class="col">
+      <p> Cliquer pour supprimer:  </p>
+      <p class="message-container" *ngFor="let message of messages; let i = index" (click)="removeItem(i)">
+        {{ message }}
+      </p>
+     
+    </div>
+     <!-- <div > 
+      <a  (click)="sendMeHome()" ><strong> Retourner à l'afficheur </strong></a>
+    
+  </div>
+  
+  <h3 class="animated infinite bounce">Example</h3>
+  
+  </div> -->

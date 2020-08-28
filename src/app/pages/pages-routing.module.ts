@@ -83,6 +83,24 @@ const routes: Routes = [{
       pathMatch: 'full',
     },
     {
+        path:'message',
+        loadChildren: () => import('./message/message.module')
+        .then(m => m.MessageModule),
+
+    },
+    {
+      path:'notification',
+      loadChildren: () => import('./notification/notification.module')
+      .then(m => m.NotificationModule),
+
+  },
+  {
+    path:'components',
+    loadChildren: () => import('./components/components.module')
+    .then(m => m.ComponentsModule),
+
+},
+    {
       path: '**',
       component: NotFoundComponent,
     },

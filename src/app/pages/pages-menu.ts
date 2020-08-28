@@ -35,15 +35,15 @@ export const MENU_ITEMS: NbMenuItem[] = [
     children: [
       {
         title: 'Graphique',
-        link: '/pages/charts/echarts',
+        link: '/pages/components',
       },
       {
         title: 'Message',
-        link: '/pages/charts/chartjs',
+        link: '/pages/message',
       },
       {
         title: 'Notification',
-        link: '/pages/charts/d3',
+        link: '/pages/notification',
       },
     ],
   },

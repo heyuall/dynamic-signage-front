@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { LocalDataSource } from 'ng2-smart-table';
 //import { InjiService } from '../../../services/inji.service';
 import { ButtonViewComponent } from '../../button-view/button-view.component';
+import { AfficheurPopupComponent } from '../afficheur-popup/afficheur-popup.component';
+import { AperculayoutComponent } from '../aperculayout/aperculayout.component';
 
 @Component({
   selector: 'ngx-layout-manager',
@@ -55,20 +57,21 @@ export class LayoutManagerComponent {
         title: 'Notification',
         type: 'html',
         editor: {
-          type: 'checkbox',
+          type: 'list', // Used to set dropdown list from database. 
           config: {
-            true: '<i class="fa fa-check-square"></i>',
-            false: '-'
+            selectText: 'Select...',
+            list: [
+              {value: 'Atelier', title:'Atelier'},
+              {value: 'Ligne 1', title:'Ligne 1'},
+              {value: 'Ligne 2', title:'Ligne 2'},
+              {value: 'Ligne 3', title:'Ligne 3'},
+              {value: 'Non', title:'Non'},
+            ]
+            
           },
         },
-        filter: {
-          type: 'checkbox',
-          config: {
-            true: '<i class="fa fa-check-square"></i>',
-            false: 'No',
-            resetText: '',
-          }
-        },
+        
+        
       },
       footer: {
         title: 'Message',
@@ -76,16 +79,30 @@ export class LayoutManagerComponent {
         editor: {
           type: 'checkbox',
           config: {
-            true: '<i class="fa fa-check-square" ></i>',
-            false: '-'
+            true: 'Oui',
+            false: 'Non'
           },
         },
-        filter: true
+        filter: {
+          type: 'checkbox',
+          config: {
+            true: 'Oui',
+            false: 'Non',
+            resetText: '',
+          }
+        },
       },
       button: {
-        title: 'Button',
+        title: 'Components',
         type: 'custom',
-        renderComponent: ButtonViewComponent
+        renderComponent: AfficheurPopupComponent,
+        filter : false
+      },
+      button2: {
+        title: 'Aperçu',
+        type: 'custom',
+        renderComponent: AperculayoutComponent,
+        filter : false
       },
     },
     
@@ -102,21 +119,21 @@ export class LayoutManagerComponent {
       id: 1,
       name: "Layout1",
       main: "2x2",
-      aside: true,
+      aside: "Ligne 1",
       footer: true,
     },
     {
       id: 1,
       name: "Layout2",
       main: "1x2",
-      aside: true,
-      footer: true,
+      aside: "Ligne 2",
+      footer: false,
     },
     {
       id: 1,
       name: "Layout3",
       main: "2x3",
-      aside: false,
+      aside: "Ligne 3",
       footer: false,
     }
   ];

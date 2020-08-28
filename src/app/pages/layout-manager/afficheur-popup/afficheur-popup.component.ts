@@ -1,6 +1,7 @@
 import {  OnInit } from '@angular/core';
 import { Component, TemplateRef } from '@angular/core';
 import { NbDialogService } from '@nebular/theme';
+import { LayoutchecklistComponent } from '../layoutchecklist/layoutchecklist.component';
 
 
 @Component({
@@ -16,7 +17,7 @@ export class AfficheurPopupComponent  {
 
   
   open3() {
-    this.dialogService.open(DialogPromptComponent)
+    this.dialogService.open(LayoutchecklistComponent)
       .onClose.subscribe(d => this.d=d);
      
   }

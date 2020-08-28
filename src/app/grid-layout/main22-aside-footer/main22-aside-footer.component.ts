@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
   selector: 'ngx-main22-aside-footer',
   templateUrl: './main22-aside-footer.component.html',

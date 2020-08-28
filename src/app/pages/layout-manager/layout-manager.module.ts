@@ -8,17 +8,27 @@ import { ThemeModule } from '../../@theme/theme.module';
 import { CommonModule } from '@angular/common';
 import { LayoutManagerComponent } from './layout-manager/layout-manager.component';
 import { TablesModule } from '../tables/tables.module';
-import {LayoutManagerRoutingModule} from './layout-manager-routing.module';
+import { LayoutManagerRoutingModule } from './layout-manager-routing.module';
 import { AfficheurPopupComponent } from './afficheur-popup/afficheur-popup.component';
 import { LayoutchecklistComponent } from './layoutchecklist/layoutchecklist.component';
 
+import {
+  NbButtonModule,
+
+  NbCheckboxModule,
+  NbDialogModule,
+  NbRadioModule,
+  NbPopoverModule
+
+} from '@nebular/theme';
+import { AperculayoutComponent } from './aperculayout/aperculayout.component';
 // import {SmartTableComponent} from '../tables/smart-table/smart-table.component';
 
 // import { ButtonViewComponent } from '../button-view/button-view.component';
 // import { HelloComponent } from '../../hello.component';
 // import { InjiService } from '../../services/inji.service';
 @NgModule({
-  declarations: [LayoutManagerComponent, AfficheurPopupComponent, LayoutchecklistComponent],
+  declarations: [LayoutManagerComponent, AfficheurPopupComponent, LayoutchecklistComponent, AperculayoutComponent],
   imports: [
     CommonModule,
     TablesModule,
@@ -28,7 +38,13 @@ import { LayoutchecklistComponent } from './layoutchecklist/layoutchecklist.comp
     NbInputModule,
     ThemeModule,
     Ng2SmartTableModule,
-    LayoutManagerRoutingModule
+    LayoutManagerRoutingModule,
+    NbButtonModule,
+
+    NbCheckboxModule,
+    NbDialogModule,
+    NbRadioModule,
+    NbPopoverModule
   ]
   // ,providers:       [ InjiService ],
   // entryComponents: [ HelloComponent, ButtonViewComponent ]
