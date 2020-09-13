@@ -21,9 +21,15 @@ import {
   NbIconModule,
   NbSelectModule,
   NbListModule,
+  
 } from '@nebular/theme';
 
-import{ComponentsModule} from '../pages/components/components.module'
+import{ComponentsModule} from '../pages/components/components.module';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { MessageDataService } from '../services/message-data.service';
+import { ThemeModule } from '../@theme/theme.module';
+import { GaugeChartModule } from 'angular-gauge-chart'
+
 @NgModule({
   imports: [
     RouterModule,
@@ -38,7 +44,10 @@ import{ComponentsModule} from '../pages/components/components.module'
     NbIconModule,
     NbSelectModule,
     NbListModule,
-    ComponentsModule
+    ComponentsModule,
+    MDBBootstrapModule,
+    ThemeModule,
+    GaugeChartModule
   ],
   declarations: [
     Main22AsideFooterComponent,
@@ -50,6 +59,9 @@ import{ComponentsModule} from '../pages/components/components.module'
     Main33Component,
     GridLayoutComponent
   ],
+  providers: [
+    MessageDataService
+],
 
 })
 export class GridLayoutModule { }

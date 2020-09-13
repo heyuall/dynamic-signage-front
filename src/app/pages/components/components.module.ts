@@ -6,8 +6,9 @@ import { ComponentsComponent } from './components/components.component';
 
 import { NgxGaugeModule } from 'ngx-gauge';
 import { NbCardModule } from '@nebular/theme';
-
+import { GaugeChartModule } from 'angular-gauge-chart'
 import { ThemeModule } from '../../@theme/theme.module';
+import { ChartsModule} from '../charts/charts.module';
 @NgModule({
   declarations: [ComponentsComponent],
   imports: [
@@ -15,7 +16,9 @@ import { ThemeModule } from '../../@theme/theme.module';
     ComponentsRoutingModule,
     NgxGaugeModule,
     NbCardModule,
-    ThemeModule
+    ThemeModule,
+    ChartsModule,
+    GaugeChartModule
   ],
   exports: [ComponentsComponent]
 })

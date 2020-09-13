@@ -1,19 +1,38 @@
 <body>
-    <aside> </aside>
-    <section> <ngx-chartjs-pie></ngx-chartjs-pie> </section>
-    <section><ngx-chartjs-pie></ngx-chartjs-pie></section>
-    <section> <ngx-chartjs-bar></ngx-chartjs-bar></section>
-    
+    <aside>
+        <div style="text-align: center;">
+            <h3> Ligne1 </h3>
+        </div>
+
+        <p class="message-container" *ngFor="let notification of Ligne1">
+            {{notification.value}}
+        </p>
+
+
+
+    </aside>
+    <section style="padding-left: 20%;">
+        <rg-gauge-chart  [canvasWidth]="canvasWidth" [needleValue]="needleValue" [centralLabel]="centralLabel"
+            [options]="options" [name]="name" [bottomLabel]="bottomLabel">
+        </rg-gauge-chart>
+    </section>
+    <section>
+        <ngx-chartjs-pie style="padding-bottom: 200px;"></ngx-chartjs-pie>
+    </section>
+    <section>
+        <ngx-chartjs-bar></ngx-chartjs-bar>
+    </section>
+
 
 
     <main style="margin: 0px; padding: 10px; ">
 
 
-       
-           <ngx-chartjs-line></ngx-chartjs-line> 
-       
-        
-           <!-- <ngx-components  style="margin-left:50px; position: relative;"></ngx-components> -->
+
+        <ngx-chartjs-line></ngx-chartjs-line>
+
+
+        <!-- <ngx-components  style="margin-left:50px; position: relative;"></ngx-components> -->
 
     </main>
 
@@ -21,7 +40,13 @@
     <footer>
 
 
-
+        <mdb-carousel [interval]="2000" [isControls]="false">
+            <mdb-slide *ngFor="let message of messages">
+                <div style="text-align: center; padding: 2em;margin-left: 40%;">
+                    <h3 class="animated  {{value}} "> <strong> {{message}} </strong></h3>
+                </div>
+            </mdb-slide>
+        </mdb-carousel>
 
 
     </footer>

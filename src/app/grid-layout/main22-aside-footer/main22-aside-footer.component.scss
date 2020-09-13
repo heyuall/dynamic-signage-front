@@ -1,3 +1,27 @@
+@import '../../@theme/styles/styles.scss';
+@import url('https://fonts.googleapis.com/css?family=Raleway:300,700');
+
+@include nb-install-component() {
+  .list-card {
+    nb-card-header {
+      border-bottom: none;
+    }
+
+    nb-card-body {
+      padding: 0;
+    }
+  }
+}
+//
+
+.message-container {
+  background:#3FA0E1;
+  padding:.5em;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+
 body {
     height: 100vh;
      max-height: auto ;
@@ -16,7 +40,8 @@ body {
 
   aside {
     grid-area: sidebar;
-    background-color: rgb(37, 117, 197);
+    background-color: #57B3F1;
+
     align-self: stretch;
 }
 section:nth-of-type(1) {
