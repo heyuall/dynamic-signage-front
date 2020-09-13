@@ -25,6 +25,10 @@ import { ProdLigne3Component } from './prod-ligne3/prod-ligne3.component';
     GaugeChartModule
   ],
   exports: [ComponentsComponent,
-  TemperatureComponent]
+  TemperatureComponent,
+  ProdLigne1Component,
+  ProdLigne2Component,
+  ProdLigne3Component
+]
 })
 export class ComponentsModule { }
