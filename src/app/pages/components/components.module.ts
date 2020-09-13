@@ -9,8 +9,12 @@ import { NbCardModule } from '@nebular/theme';
 import { GaugeChartModule } from 'angular-gauge-chart'
 import { ThemeModule } from '../../@theme/theme.module';
 import { ChartsModule} from '../charts/charts.module';
+import { TemperatureComponent } from './temperature/temperature.component';
+import { ProdLigne1Component } from './prod-ligne1/prod-ligne1.component';
+import { ProdLigne2Component } from './prod-ligne2/prod-ligne2.component';
+import { ProdLigne3Component } from './prod-ligne3/prod-ligne3.component';
 @NgModule({
-  declarations: [ComponentsComponent],
+  declarations: [ComponentsComponent, TemperatureComponent, ProdLigne1Component, ProdLigne2Component, ProdLigne3Component],
   imports: [
     CommonModule,
     ComponentsRoutingModule,
@@ -20,6 +24,7 @@ import { ChartsModule} from '../charts/charts.module';
     ChartsModule,
     GaugeChartModule
   ],
-  exports: [ComponentsComponent]
+  exports: [ComponentsComponent,
+  TemperatureComponent]
 })
 export class ComponentsModule { }
