@@ -28,7 +28,11 @@ import{ComponentsModule} from '../pages/components/components.module';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { MessageDataService } from '../services/message-data.service';
 import { ThemeModule } from '../@theme/theme.module';
-import { GaugeChartModule } from 'angular-gauge-chart'
+import { GaugeChartModule } from 'angular-gauge-chart';
+
+import { FormsModule } from '@angular/forms';
+
+
 
 @NgModule({
   imports: [
@@ -47,7 +51,8 @@ import { GaugeChartModule } from 'angular-gauge-chart'
     ComponentsModule,
     MDBBootstrapModule,
     ThemeModule,
-    GaugeChartModule
+    GaugeChartModule,
+    FormsModule
   ],
   declarations: [
     Main22AsideFooterComponent,

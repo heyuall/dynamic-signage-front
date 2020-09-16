@@ -11,14 +11,7 @@ export class Main22AsideFooterComponent implements OnInit {
   value : string ="flash";
   messages : any;
   
-  notifications: { ligne: string, value: string }[] = [
-    { ligne: 'Ligne 1', value: 'Arrêt Planifié' },
-    { ligne: 'Ligne 2', value: 'Blockage' },
-    { ligne: 'Ligne 3', value: 'En progression' },
-    { ligne: 'Ligne 2', value: 'Fin série1' },
-   
-  ];
-  Ligne1: { ligne: string, value: string }[] = [
+    Ligne1: { ligne: string, value: string }[] = [
     { ligne: 'Ligne 1', value: 'Arrêt Planifié' },
     { ligne: 'Ligne 1', value: 'Blockage' },
     { ligne: 'Ligne 1', value: 'En progression' },
@@ -29,14 +22,14 @@ export class Main22AsideFooterComponent implements OnInit {
   public canvasWidth = 300
   public needleValue = 65
   public centralLabel = ''
-  public name = 'Gauge chart'
-  public bottomLabel = '65'
+  public name = 'Production Ligne 1'
+  public bottomLabel = '65 Pièces'
   public options = {
       hasNeedle: true,
       needleColor: 'gray',
       needleUpdateSpeed: 1000,
       arcColors: ['rgb(44, 151, 222)', 'lightgray'],
-      arcDelimiters: [30],
+      arcDelimiters: [65],
       rangeLabel: ['0', '100'],
       needleStartValue: 50,
   }

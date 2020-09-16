@@ -7,6 +7,7 @@ import { Main22AsideFooterComponent } from './main22-aside-footer/main22-aside-f
 import { GridLayoutComponent } from './grid-layout.component';
 import { GridLayoutModule } from './grid-layout.module';
 import { Main22Component } from './main22/main22.component';
+import { Main23Component } from './main23/main23.component';
 const routes: Routes = [
     {
         path: '',
@@ -14,7 +15,8 @@ const routes: Routes = [
 
         children: [
             { path: 'main22-aside-footer', component: Main22AsideFooterComponent },
-            {path:'main22',component:Main22Component}
+            {path:'main22',component:Main22Component},
+            {path: 'main23',component:Main23Component}
         ],
     },
     {
