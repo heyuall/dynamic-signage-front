@@ -5,13 +5,14 @@ import { LocalDataSource } from 'ng2-smart-table';
 import { ButtonViewComponent } from '../../button-view/button-view.component';
 import { AfficheurPopupComponent } from '../afficheur-popup/afficheur-popup.component';
 import { AperculayoutComponent } from '../aperculayout/aperculayout.component';
+import {MonitorService} from '../../../services/monitor.service';
 
 @Component({
   selector: 'ngx-layout-manager',
   templateUrl: './layout-manager.component.html',
   styleUrls: ['./layout-manager.component.scss']
 })
-export class LayoutManagerComponent {
+export class LayoutManagerComponent implements OnInit{
 
   settings = {
     add: {
@@ -34,7 +35,7 @@ export class LayoutManagerComponent {
         title: 'Nom',
         filter: true
       },
-      main: {
+      main_dimension: {
         title: 'Main',
         type: 'html',
         //valuePrepareFunction: (cell, row) => { return cell },
@@ -114,35 +115,43 @@ export class LayoutManagerComponent {
 
   // source: LocalDataSource;
 
-  data = [
-    {
-      id: 1,
-      name: "Layout1",
-      main: "2x2",
-      aside: "Ligne 1",
-      footer: true,
-    },
-    {
-      id: 1,
-      name: "Layout2",
-      main: "1x2",
-      aside: "Ligne 2",
-      footer: false,
-    },
-    {
-      id: 1,
-      name: "Layout3",
-      main: "2x3",
-      aside: "Ligne 3",
-      footer: false,
-    }
-  ];
+  data:any;
+  // [
+  //   {
+  //     id: 1,
+  //     name: "Layout1",
+  //     main: "2x2",
+  //     aside: "Ligne 1",
+  //     footer: true,
+  //   },
+  //   {
+  //     id: 1,
+  //     name: "Layout2",
+  //     main: "1x2",
+  //     aside: "Ligne 2",
+  //     footer: false,
+  //   },
+  //   {
+  //     id: 1,
+  //     name: "Layout3",
+  //     main: "2x3",
+  //     aside: "Ligne 3",
+  //     footer: false,
+  //   }
+  // ];
 
 
-  constructor( /*private InjiService: InjiService*/) {
+  constructor( private service : MonitorService) {
     // this.source = new LocalDataSource(this.data); // create the source
     console.log(this.data);
 
+
+  }
+
+  ngOnInit(){
+    this.service.getLayoutList().subscribe(res=>{
+      this.data=res;
+    })
   }
 
   onDeleteConfirm(event): void {

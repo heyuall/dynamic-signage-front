@@ -42,8 +42,9 @@ export class LayoutchecklistComponent  {
   }
 
   submit(d) {
+    console.log(d);
     this.ref.close(d);
-   
+    
   }
 
 }

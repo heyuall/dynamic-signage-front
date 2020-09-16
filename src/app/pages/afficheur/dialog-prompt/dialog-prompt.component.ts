@@ -1,49 +1,35 @@
 import { Component, OnInit } from '@angular/core';
 import { NbDialogRef } from '@nebular/theme';
+import {MonitorService} from '../../../services/monitor.service';
 
 @Component({
   selector: 'ngx-dialog-prompt',
   templateUrl: './dialog-prompt.component.html',
   styleUrls: ['./dialog-prompt.component.scss']
 })
-export class DialogPromptComponent {
+export class DialogPromptComponent implements OnInit {
 
-  constructor( private ref: NbDialogRef<DialogPromptComponent>) {}
+  constructor( private ref: NbDialogRef<DialogPromptComponent>, private service: MonitorService) {}
 
  
   
-  data = [
-    {
-      id: 1,
-      name: "Layout1",
-      main: "2x2",
-      aside: true,
-      footer: true,
-    },
-    {
-      id: 2,
-      name: "Layout2",
-      main: "1x2",
-      aside: true,
-      footer: true,
-    },
-    {
-      id: 3,
-      name: "Layout3",
-      main: "2x3",
-      aside: false,
-      footer: false,
-    }
-  ];
+  data : any;
+
 
   d ;
+  ngOnInit() {
+    this.service.getLayoutList().subscribe(res=>{
+      this.data =res;
+    });
+  }
 
   cancel() {
     this.ref.close();
   }
 
   submit(d) {
+    console.log(d);
     this.ref.close(d);
-   
+   this.service.send(d);
   }
 }

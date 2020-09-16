@@ -18,10 +18,13 @@ nb-card-body {
   }
   
   .checkbox-radio {
-    display: flex;
+    align-items: center;
   }
   
   .demo-items {
-    flex: 1 0 33%;
+    display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
+  flex-flow: column;
   }
   

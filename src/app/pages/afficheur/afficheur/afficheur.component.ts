@@ -1,15 +1,15 @@
 import { LocalDataSource } from 'ng2-smart-table';
 import { Component, OnInit } from '@angular/core';
 import{LayoutPopupComponent}from '../layout-popup/layout-popup.component';
+import {MonitorService} from '../../../services/monitor.service';
 
-import { Type } from '@angular/core';
 
 @Component({
   selector: 'ngx-afficheur',
   templateUrl: './afficheur.component.html',
   styleUrls: ['./afficheur.component.scss']
 })
-export class AfficheurComponent {
+export class AfficheurComponent  implements OnInit{
 
   settings = {
     add: {
@@ -32,7 +32,7 @@ export class AfficheurComponent {
         title: 'Nom',
         filter: true
       },
-      reference: {
+      afficheurReference: {
         title: 'Reference',
         filter: true
       },
@@ -50,7 +50,7 @@ export class AfficheurComponent {
       //   },
       //   filter: true
       // },
-      Layout : {
+      layoutGrid : {
         title: 'Affecter Layout',
         type: 'custom',
         renderComponent: LayoutPopupComponent,
@@ -60,34 +60,51 @@ export class AfficheurComponent {
   };
 
   
-  data = [
-    {
-      id : 1, 
-      name : "afficheur1",
-      reference: "ref1",
-      Layout: "layout1"
-    },
-    {
-      id : 2,
-      name : "afficheur2",
-      reference: "ref2",
-      Layout: "layout1"
-    },
-    {
-      id : 3,
-      name : "afficheur3",
-      reference: "ref3",
-      Layout: "layout1"
-    },
-  ];
-
-  constructor() {
+  data: any;
+  selectedID :number;
+  constructor( private service : MonitorService) {
     // this.source = this.data; // create the source
+
+
   }
 
+ngOnInit(){
+// this.data= [
+//   {
+//     id : 1, 
+//     name : "afficheur1",
+//     reference: "ref1",
+//     Layout: "layout1"
+//   },
+//   {
+//     id : 2,
+//     name : "afficheur2",
+//     reference: "ref2",
+//     Layout: "layout1"
+//   },
+//   {
+//     id : 3,
+//     name : "afficheur3",
+//     reference: "ref3",
+//     Layout: "layout1"
+//   },
+// ];
+this.service.getMonitorList().subscribe(res=>{
+  this.data = res;
+});
 
+this.service.eventEmitter.subscribe(layoutId=>{
+ this.service.affectLayout(this.selectedID,layoutId).subscribe(res=>{
+   console.log("success");
+ })
 
+})
+}
 
+rowSelect(event){
+console.log(event);
+this.selectedID=event.data.id;
+}
 
 
   onDeleteConfirm(event): void {
