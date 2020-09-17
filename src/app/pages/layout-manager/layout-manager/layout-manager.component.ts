@@ -19,11 +19,13 @@ export class LayoutManagerComponent implements OnInit{
       addButtonContent: '<i class="nb-plus" ></i>',
       createButtonContent: '<i class="nb-checkmark"></i>',
       cancelButtonContent: '<i class="nb-close"></i>',
+      confirmCreate:true,
     },
     edit: {
       editButtonContent: '<i class="nb-edit"></i>',
       saveButtonContent: '<i class="nb-checkmark"></i>',
       cancelButtonContent: '<i class="nb-close"></i>',
+      confirmSave:true,
     },
     delete: {
       deleteButtonContent: '<i class="nb-trash"></i>',
@@ -44,9 +46,9 @@ export class LayoutManagerComponent implements OnInit{
           config: {
             selectText: 'Select...',
             list: [
-              {value: '1x2', title:'1x2'},
-              {value: '2x2', title:'2x2'},
-              {value: '2x3', title:'2x3'}
+              {value: '1*2', title:'1x2'},
+              {value: '2*2', title:'2x2'},
+              {value: '2*3', title:'2x3'}
               
             ]
             
@@ -80,15 +82,15 @@ export class LayoutManagerComponent implements OnInit{
         editor: {
           type: 'checkbox',
           config: {
-            true: 'Oui',
-            false: 'Non'
+            true: 'true',
+            false: 'false'
           },
         },
         filter: {
           type: 'checkbox',
           config: {
-            true: 'Oui',
-            false: 'Non',
+            true: 'true',
+            false: 'false',
             resetText: '',
           }
         },
@@ -140,7 +142,7 @@ export class LayoutManagerComponent implements OnInit{
   //   }
   // ];
 
-
+  selectedID:any;
   constructor( private service : MonitorService) {
     // this.source = new LocalDataSource(this.data); // create the source
     console.log(this.data);
@@ -153,13 +155,35 @@ export class LayoutManagerComponent implements OnInit{
       this.data=res;
     })
   }
+  rowSelect(event) {
+    console.log(event);
+    this.selectedID = event.data.id;
+  }
+  onCreateConfirm (event){
+    this.service.addLayout(event.newData).subscribe(res=>{
+      console.log("success added Layout");
+      event.confirm.resolve(event.newData);
+    })
+  }
+  onEditConfirm(event){
+    this.service.updateLayout(event.newData,event.data.id).subscribe(res=>{
+      console.log("success updated Layout");
+      event.confirm.resolve(event.newData);
+    });
+  }
 
   onDeleteConfirm(event): void {
     if (window.confirm('Etes vous sûr de supprimer?')) {
-      event.confirm.resolve();
+      this.service.deleteLayout(event.data.id).subscribe(res=>{
+        event.confirm.resolve();
+      })
+      
     } else {
       event.confirm.reject();
     }
+
+
   }
+ 
 
 }

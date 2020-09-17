@@ -123,7 +123,10 @@ export class AfficheurComponent implements OnInit {
 
   onDeleteConfirm(event): void {
     if (window.confirm('Etes vous sûr de supprimer?')) {
-      event.confirm.resolve();
+      this.service.deleteMonitor(event.data.id).subscribe(res=>{
+        event.confirm.resolve();
+      })
+      
     } else {
       event.confirm.reject();
     }

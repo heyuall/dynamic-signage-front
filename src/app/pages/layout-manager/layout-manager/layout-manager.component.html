@@ -1,4 +1,8 @@
 <!-- <p>it works !!</p>
 <ngx-smart-table ></ngx-smart-table> -->
-<ng2-smart-table [settings]="settings" [source]="data" (deleteConfirm)="onDeleteConfirm($event)"> </ng2-smart-table>
-
+<ng2-smart-table 
+[settings]="settings" 
+[source]="data" (deleteConfirm)="onDeleteConfirm($event)"
+(rowSelect)="rowSelect($event)"
+(createConfirm)="onCreateConfirm($event)"
+(editConfirm)='onEditConfirm($event)'></ng2-smart-table>
