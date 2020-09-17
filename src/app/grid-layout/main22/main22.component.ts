@@ -27,10 +27,10 @@ export class Main22Component implements OnInit {
    }
 
   ngOnInit(): void {
-    this.loadComponent('temperature');
-    this.loadComponent2('prod1');
-    this.loadComponent3('prod2');
-    this.loadComponent4('prod3')
+    this.loadComponent('Temperature');
+    this.loadComponent2('Production Ligne 1');
+    this.loadComponent3('Production Ligne 2');
+    this.loadComponent4('Production Ligne 3')
   }
   loadComponent(name: string) {
     console.log('Function has been called', name);

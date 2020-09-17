@@ -11,15 +11,18 @@ import { LayoutchecklistComponent } from '../layoutchecklist/layoutchecklist.com
 })
 export class AfficheurPopupComponent  {
 
-  d:string;
+  d:any[];
 
   constructor(private dialogService: NbDialogService) { }
 
   
   open3() {
     this.dialogService.open(LayoutchecklistComponent)
-      .onClose.subscribe(d => this.d=d);
-     
+      .onClose.subscribe(d => {
+        this.d=d;
+        console.log('COMPONENT LIST CHECKED '+d);
+      }
+      )
   }
 
 }

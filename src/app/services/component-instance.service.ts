@@ -10,10 +10,10 @@ export class ComponentInstanceService {
   componentInstances: Map<string, any> = new Map();
 
   constructor() {
-    this.setComponent('temperature', TemperatureComponent);
-    this.setComponent('prod1', ProdLigne1Component);
-    this.setComponent('prod2', ProdLigne2Component);
-    this.setComponent('prod3', ProdLigne3Component);
+    this.setComponent('Temperature', TemperatureComponent);
+    this.setComponent('Production Ligne 1', ProdLigne1Component);
+    this.setComponent('Production Ligne 2', ProdLigne2Component);
+    this.setComponent('Production Ligne 3', ProdLigne3Component);
   }
   setComponent(name: string, component: any): void {
     this.componentInstances.set(name, component);

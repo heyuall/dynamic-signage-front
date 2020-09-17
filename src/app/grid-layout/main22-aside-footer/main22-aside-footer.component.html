@@ -12,28 +12,33 @@
 
     </aside>
 
+   
     <section style="padding-left: 20%;">
-        <rg-gauge-chart  [canvasWidth]="canvasWidth" [needleValue]="needleValue" [centralLabel]="centralLabel"
-            [options]="options" [name]="name" [bottomLabel]="bottomLabel">
-        </rg-gauge-chart>
+        <!-- <ngx-prod-ligne2></ngx-prod-ligne2> -->
+        
+          <ng-template #sect1>
+          </ng-template>
     </section>
-    <section>
-        <ngx-chartjs-pie style="padding-bottom: 200px;"></ngx-chartjs-pie>
+    <section style="padding-left: 20%;">
+        <ng-template #sect2>
+        </ng-template>
     </section>
-    <section>
-        <ngx-chartjs-bar></ngx-chartjs-bar>
+    <section style="padding-left: 20%;">
+        <ng-template #sect3>
+        </ng-template>
     </section>
-
+    
 
 
     <main style="padding-left: 20%;">
 
 
+        <ng-template #mainContent>
+        </ng-template>
 
-        <ngx-temperature></ngx-temperature>
 
 
-        <!-- <ngx-components  style="margin-left:50px; position: relative;"></ngx-components> -->
+
 
     </main>
 
@@ -43,7 +48,7 @@
 
         <mdb-carousel [interval]="2000" [isControls]="false">
             <mdb-slide *ngFor="let message of messages">
-                <div style="text-align: center; padding: 2em;margin-left: 40%;">
+                <div style="text-align: center; padding: 2em;margin-left: 30%;margin-right: 30%;">
                     <h3 class="animated  {{value}} "> <strong> {{message}} </strong></h3>
                 </div>
             </mdb-slide>
