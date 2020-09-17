@@ -11,11 +11,15 @@ export class MonitorService {
   private url = 'http://localhost:8080/api/';
 
   public eventEmitter: EventEmitter<any> = new EventEmitter();
+  public eventEmitter2:EventEmitter<any> = new EventEmitter();
 
   constructor(private http: HttpClient) {
   }
   send(param) {
     this.eventEmitter.emit(param);
+  }
+  send2(param) {
+    this.eventEmitter2.emit(param);
   }
 
   getMonitorList(): Observable<any> {
@@ -74,11 +78,19 @@ export class MonitorService {
         "main_dimension": LayoutGrid.main_dimension,
         "footer": LayoutGrid.footer,
         "aside": LayoutGrid.aside,
-     })
+      })
   }
 
   deleteLayout(id) {
     return this.http.delete(`${this.url}` + 'LayoutGrid/remove/' + id);
+  }
+  affectComponents(layoutId, componentIds: any[]) {
+    var Url = `${this.url}` + 'LayoutGrid/' + layoutId + '/setComponents/'+componentIds[0];
+    for (let i=1;i<componentIds.length;i++ ) {
+      Url+=','+componentIds[i];
+    }
+    console.log('//////////////'+Url);
+    return this.http.post(Url,{});
   }
 
 }

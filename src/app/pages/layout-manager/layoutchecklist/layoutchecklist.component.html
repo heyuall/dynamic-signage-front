@@ -2,12 +2,10 @@
     <nb-card-header>Components</nb-card-header>
     <nb-card-body class="checkbox-radio">
      <div class="demo-items" >
-        <nb-checkbox>prod1</nb-checkbox>
-        <nb-checkbox >prod2</nb-checkbox>
-        <nb-checkbox >prod3</nb-checkbox>
-        <nb-checkbox >temperature</nb-checkbox>
-        <nb-checkbox >poduction par semaine</nb-checkbox>
-        <nb-checkbox >comparaison production</nb-checkbox>
+        <nb-checkbox 
+        *ngFor="let d of data" 
+        (checkedChange)="d.selected = !d.selected">{{d.title}}</nb-checkbox>
+       
       </div>  
       <nb-card-footer>
 

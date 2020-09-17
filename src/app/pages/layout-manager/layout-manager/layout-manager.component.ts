@@ -154,6 +154,12 @@ export class LayoutManagerComponent implements OnInit{
     this.service.getLayoutList().subscribe(res=>{
       this.data=res;
     })
+    this.service.eventEmitter2.subscribe(componentIds => {
+      this.service.affectComponents(this.selectedID,componentIds ).subscribe(res => {
+        console.log("success");
+      })
+
+    })
   }
   rowSelect(event) {
     console.log(event);

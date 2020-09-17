@@ -1,50 +1,44 @@
 import { Component, OnInit } from '@angular/core';
 import { NbDialogRef } from '@nebular/theme';
+import {ComponentDataService} from '../../../services/component-data.service';
+import { MonitorService } from '../../../services/monitor.service';
 @Component({
   selector: 'ngx-layoutchecklist',
   templateUrl: './layoutchecklist.component.html',
   styleUrls: ['./layoutchecklist.component.scss']
 })
-export class LayoutchecklistComponent  {
+export class LayoutchecklistComponent  implements OnInit{
 
-  constructor( private ref: NbDialogRef<LayoutchecklistComponent>) {}
+  constructor(private service2: MonitorService,
+    private service:ComponentDataService,
+     private ref: NbDialogRef<LayoutchecklistComponent>) {}
 
  
   
-  data = [
-    {
-      id: 1,
-      name: "Layout1",
-      main: "2x2",
-      aside: true,
-      footer: true,
-    },
-    {
-      id: 2,
-      name: "Layout2",
-      main: "1x2",
-      aside: true,
-      footer: true,
-    },
-    {
-      id: 3,
-      name: "Layout3",
-      main: "2x3",
-      aside: false,
-      footer: false,
-    }
-  ];
+  data =[];
 
   d ;
+  selction=[];
 
   cancel() {
     this.ref.close();
   }
 
   submit(d) {
-    console.log(d);
-    this.ref.close(d);
+    console.log(this.data);
+    for (let d of this.data){
+      if (d.selected) this.selction.push(d.id);
+    }
+    console.log(this.selction);
+    this.ref.close(this.selction);
+    this.service2.send2(this.selction);
     
+  }
+  ngOnInit(){
+   this.service.getComponentList().subscribe(res=>{
+     this.data= res;
+     this.data.forEach(e => {e.selected = false;});
+   });
   }
 
 }
