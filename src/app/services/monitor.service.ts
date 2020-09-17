@@ -31,5 +31,20 @@ export class MonitorService {
     return this.http
     .post(`${this.url}` + 'Afficheur/'+`${monitorId}`+'/affectLayoutGrid/'+layoutId,{});
   }
+  addMonitor(Monitor){
+   return  this.http.post(`${this.url}`+ 'Afficheur/add',
+    {
+      "name":Monitor.name,
+    "afficheurReference":Monitor.afficheurReference,
+    })
+  }
+
+  updateMonitor(Monitor,id){
+    return  this.http.post(`${this.url}`+ 'Afficheur/add',
+     {"id" : id,
+       "name":Monitor.name,
+     "afficheurReference":Monitor.afficheurReference,
+     })
+   }
 
 }
