@@ -44,11 +44,14 @@ export class MessageComponent implements OnInit {
     this.router.navigate(['']);
   }
   ngOnInit() {
-   
+   this._data.getMessages().subscribe(res=> {this.messages = res[0].data;
+  console.log(this.messages);
+  this.messageCount = this.messages.length;
+  })
     
-    this._data.message.subscribe(res => this.messages = res);
-    this.messageCount = this.messages.length;
-    this._data.changeMessage(this.messages);
+   // this._data.message.subscribe(res => this.messages = res);
+   
+    //this._data.changeMessage(this.messages);
     
   }
 
@@ -56,14 +59,16 @@ export class MessageComponent implements OnInit {
     this.messages.push(this.messageText);
     this.messageText = '';
     this.messageCount = this.messages.length;
-    this._data.changeMessage(this.messages);
+    //this._data.changeMessage(this.messages);
+    this._data.updateMessages(this.messages).subscribe(res=>{});
   
     
     console.log("after addItem: ", this.messages);
   }
   removeItem(i: number) {
     this.messages.splice(i, 1);
-    this._data.changeMessage(this.messages);
+   // this._data.changeMessage(this.messages);
+   this._data.updateMessages(this.messages).subscribe(res=>{});
     this.messageCount = this.messages.length;
     console.log("after remoeveItem: ", this.messages);
   }

@@ -46,7 +46,7 @@ export class Main22AsideFooterComponent implements OnInit {
 
   ngOnInit() {
     
-    this._data.message.subscribe(res => this.messages = res);
+    this._data.getMessages().subscribe(res => this.messages = res[0].data);
   }
 
 }
