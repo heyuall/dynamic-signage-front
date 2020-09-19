@@ -64,7 +64,7 @@ export class LayoutManagerComponent implements OnInit{
           config: {
             selectText: 'Select...',
             list: [
-              {value: 'Atelier', title:'Atelier'},
+             
               {value: 'Ligne 1', title:'Ligne 1'},
               {value: 'Ligne 2', title:'Ligne 2'},
               {value: 'Ligne 3', title:'Ligne 3'},
@@ -100,13 +100,13 @@ export class LayoutManagerComponent implements OnInit{
         type: 'custom',
         renderComponent: AfficheurPopupComponent,
         filter : false
-      },
-      button2: {
-        title: 'Aperçu',
-        type: 'custom',
-        renderComponent: AperculayoutComponent,
-        filter : false
-      },
+       },
+      // button2: {
+      //   title: 'Aperçu',
+      //   type: 'custom',
+      //   renderComponent: AperculayoutComponent,
+      //   filter : false
+      // },
     },
     
     // rowClassFunction: (row) => {

@@ -1,10 +1,10 @@
 <body>
     <aside>
         <div style="text-align: center;">
-            <h3> Ligne1 </h3>
+            <h3> {{notifs[1].ligne}} </h3>
         </div>
 
-        <p class="message-container" *ngFor="let notification of Ligne1">
+        <p class="message-container" *ngFor="let notification of notifs">
             {{notification.value}}
         </p>
 

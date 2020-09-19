@@ -24,17 +24,17 @@ export class NotificationComponent  {
    
   ];
   Ligne2: { ligne: string, value: string }[] = [
+    { ligne: 'Ligne 2', value: 'En progression' },
     { ligne: 'Ligne 2', value: 'Arrêt Planifié' },
     { ligne: 'Ligne 2', value: 'Blockage' },
-    { ligne: 'Ligne 2', value: 'En progression' },
-    { ligne: 'Ligne 2', value: 'Fin série1' },
+     { ligne: 'Ligne 2', value: 'Fin série2' },
    
   ];
   Ligne3: { ligne: string, value: string }[] = [
     { ligne: 'Ligne 3', value: 'Arrêt Planifié' },
-    { ligne: 'Ligne 3', value: 'Blockage' },
     { ligne: 'Ligne 3', value: 'En progression' },
-    { ligne: 'Ligne 3', value: 'Fin série1' },
+    { ligne: 'Ligne 3', value: 'Fin série3' },
+    { ligne: 'Ligne 3', value: 'Blockage' },
    
   ];
   

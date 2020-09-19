@@ -23,34 +23,35 @@ export class Main22AsideFooterComponent implements OnInit {
   value: string = "flash";
   messages: any;
 
+  /////////////notifsDatas//////////
   Ligne1: { ligne: string, value: string }[] = [
     { ligne: 'Ligne 1', value: 'Arrêt Planifié' },
     { ligne: 'Ligne 1', value: 'Blockage' },
     { ligne: 'Ligne 1', value: 'En progression' },
     { ligne: 'Ligne 1', value: 'Fin série1' },
-
+   
   ];
-  ///////////////
-  public canvasWidth = 300
-  public needleValue = 65
-  public centralLabel = ''
-  public name = 'Production Ligne 1'
-  public bottomLabel = '65 Pièces'
-  public options = {
-    hasNeedle: true,
-    needleColor: 'gray',
-    needleUpdateSpeed: 1000,
-    arcColors: ['rgb(44, 151, 222)', 'lightgray'],
-    arcDelimiters: [65],
-    rangeLabel: ['0', '100'],
-    needleStartValue: 50,
-  }
+  Ligne2: { ligne: string, value: string }[] = [
+    { ligne: 'Ligne 2', value: 'En progression' },
+    { ligne: 'Ligne 2', value: 'Arrêt Planifié' },
+    { ligne: 'Ligne 2', value: 'Blockage' },
+     { ligne: 'Ligne 2', value: 'Fin série2' },
+   
+  ];
+  Ligne3: { ligne: string, value: string }[] = [
+    { ligne: 'Ligne 3', value: 'Arrêt Planifié' },
+    { ligne: 'Ligne 3', value: 'En progression' },
+    { ligne: 'Ligne 3', value: 'Fin série3' },
+    { ligne: 'Ligne 3', value: 'Blockage' },
+   
+  ];
 
-  /////////////////
+  /////////////////////////
   reference: any;
   data: any[];
   layout: any;
   components : any[];
+  notifs :any;
   constructor(private componentInstance: ComponentInstanceService, private resolver: ComponentFactoryResolver, private monitorService: MonitorService, private _data: MessageDataService, private route: ActivatedRoute, private router: Router) {
 
     const el = document.getElementById('nb-global-spinner');
@@ -82,6 +83,17 @@ export class Main22AsideFooterComponent implements OnInit {
           this.loadComponent2(''+this.components[1].title);
           this.loadComponent3(''+this.components[2].title);
           this.loadComponent4(''+this.components[3].title)
+          ////////////////loadingNotifications/////////
+          if(this.layout.aside == "Ligne 1"){
+            this.notifs = this.Ligne1;
+            console.log('AAAAAAAAAAAA'+this.notifs[1].ligne);
+          }else if(this.layout.aside == "Ligne 2"){
+            this.notifs= this.Ligne2;
+            console.log('AAAAAAAAAAAA'+this.notifs[1].ligne);
+          }else{
+            this.notifs= this.Ligne3;
+            console.log('AAAAAAAAAAAA'+this.notifs[1].ligne);
+          }
         }
       }
     });
