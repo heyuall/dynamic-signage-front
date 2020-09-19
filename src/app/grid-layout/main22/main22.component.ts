@@ -1,7 +1,7 @@
 
 import { Component, OnInit, ViewChild, ViewContainerRef, ComponentFactoryResolver } from '@angular/core';
 import { ComponentInstanceService } from '../../services/component-instance.service';
-
+import { MonitorService } from '../../services/monitor.service';
 
 @Component({
   selector: 'ngx-main22',
@@ -16,10 +16,13 @@ export class Main22Component implements OnInit {
   @ViewChild('sect2', { read: ViewContainerRef, static: true }) sect2: ViewContainerRef;
   @ViewChild('sect3', { read: ViewContainerRef, static: true }) sect3: ViewContainerRef;
  
-
+  reference: any;
+  data: any[];
+  layout: any;
+  components : any[];
   
 
-  constructor(private componentInstance: ComponentInstanceService, private resolver: ComponentFactoryResolver) {
+  constructor(private monitorService: MonitorService, private componentInstance: ComponentInstanceService, private resolver: ComponentFactoryResolver) {
     const el = document.getElementById('nb-global-spinner');
     if (el) {
       el.style['display'] = 'none';
@@ -27,10 +30,28 @@ export class Main22Component implements OnInit {
    }
 
   ngOnInit(): void {
-    this.loadComponent('Temperature');
-    this.loadComponent2('Production Ligne 1');
-    this.loadComponent3('Production Ligne 2');
-    this.loadComponent4('Production Ligne 3')
+    /////////Verfy Localstorage/////////
+    this.reference = localStorage.getItem('reference');
+    console.log(this.reference);
+
+    //////////////getMonitorByLocalStorage/////////
+    this.monitorService.getMonitorList().subscribe(monitors => {
+      this.data = monitors;
+      for (let i = 0; i < this.data.length; i++) {
+        if (this.data[i].afficheurReference == this.reference) {
+          this.layout = this.data[i].layoutGrid;
+          console.log(this.layout);
+          this.components = [...(this.layout.components)]
+          console.log(this.components);
+          console.log(this.components[0].title);
+          ///////////////////loadingcomponents//////////
+          this.loadComponent(''+this.components[0].title);
+          this.loadComponent2(''+this.components[1].title);
+          this.loadComponent3(''+this.components[2].title);
+          this.loadComponent4(''+this.components[3].title)
+        }
+      }
+    });
   }
   loadComponent(name: string) {
     console.log('Function has been called', name);
