@@ -56,7 +56,7 @@ export class AfficheurComponent implements OnInit {
         title: 'Affecter Layout',
         type: 'custom',
         renderComponent: LayoutPopupComponent,
-        filter: false
+        filter: true
       },
     }
   };

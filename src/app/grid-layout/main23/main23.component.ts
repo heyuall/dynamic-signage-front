@@ -19,7 +19,7 @@ export class Main23Component implements OnInit {
   reference: any;
   data: any[];
   layout: any;
-  components : any[];
+  components : any[]; 
   
 
   constructor(private resolver: ComponentFactoryResolver, private monitorService: MonitorService, private componentInstance: ComponentInstanceService) { 
