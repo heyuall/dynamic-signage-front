@@ -155,8 +155,14 @@ export class LayoutManagerComponent implements OnInit{
       this.data=res;
     })
     this.service.eventEmitter2.subscribe(componentIds => {
-      this.service.affectComponents(this.selectedID,componentIds ).subscribe(res => {
+      this.service.affectComponents(this.selectedID,componentIds )
+      .subscribe((updatedLayout:any) => {
         console.log("components affected with success");
+        this.data.forEach(element => {
+          if (element.id == updatedLayout.id) {
+            element.components = updatedLayout.components;
+          }
+        });
       })
 
     })
@@ -170,9 +176,10 @@ export class LayoutManagerComponent implements OnInit{
     
   }
   onCreateConfirm (event){
-    this.service.addLayout(event.newData).subscribe(res=>{
-      console.log("success added Layout");
-      event.confirm.resolve(event.newData);
+    this.service.addLayout(event.newData).subscribe((res:any)=>{
+      console.log("success added Layout :",res);
+      res.components= [];
+      event.confirm.resolve(res);
     })
   }
   onEditConfirm(event){

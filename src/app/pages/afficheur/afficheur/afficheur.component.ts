@@ -111,7 +111,7 @@ export class AfficheurComponent implements OnInit {
   onCreateConfirm (event){
     this.service.addMonitor(event.newData).subscribe(res=>{
       console.log("success added Monitor");
-      event.confirm.resolve(event.newData);
+      event.confirm.resolve(res);
     })
   }
   onEditConfirm(event){
