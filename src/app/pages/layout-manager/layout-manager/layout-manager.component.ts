@@ -156,14 +156,18 @@ export class LayoutManagerComponent implements OnInit{
     })
     this.service.eventEmitter2.subscribe(componentIds => {
       this.service.affectComponents(this.selectedID,componentIds ).subscribe(res => {
-        console.log("success");
+        console.log("components affected with success");
       })
 
     })
   }
-  rowSelect(event) {
-    console.log(event);
-    this.selectedID = event.data.id;
+  rowSelect(layout) {
+    this.selectedID = layout.data.id;
+    console.log("mn hni", layout);
+    setTimeout(() => {
+      this.service.sendLayout(layout);
+    }, 20);
+    
   }
   onCreateConfirm (event){
     this.service.addLayout(event.newData).subscribe(res=>{

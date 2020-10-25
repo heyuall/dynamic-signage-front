@@ -12,6 +12,7 @@ export class MonitorService {
 
   public eventEmitter: EventEmitter<any> = new EventEmitter();
   public eventEmitter2:EventEmitter<any> = new EventEmitter();
+  public eventEmitterLayoutEvent:EventEmitter<any> = new EventEmitter();
 
   constructor(private http: HttpClient) {
   }
@@ -20,6 +21,9 @@ export class MonitorService {
   }
   send2(param) {
     this.eventEmitter2.emit(param);
+  }
+  sendLayout(param){
+    this.eventEmitterLayoutEvent.emit(param)
   }
 
   getMonitorList(): Observable<any> {

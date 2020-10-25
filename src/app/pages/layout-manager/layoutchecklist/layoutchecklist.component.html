@@ -4,7 +4,11 @@
      <div class="demo-items" >
         <nb-checkbox 
         *ngFor="let d of data" 
-        (checkedChange)="d.selected = !d.selected">{{d.title}}</nb-checkbox>
+        (checkedChange)="toggle($event,d)"
+        [checked]="d.selected"
+      [disabled]="d.disabled"> 
+        {{d.title}} 
+      </nb-checkbox>
        
       </div>  
       <nb-card-footer>
