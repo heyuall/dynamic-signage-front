@@ -169,7 +169,7 @@ export class LayoutManagerComponent implements OnInit{
   }
   rowSelect(layout) {
     this.selectedID = layout.data.id;
-    console.log("mn hni", layout);
+    console.log("layout selecte row", layout);
     setTimeout(() => {
       this.service.sendLayout(layout);
     }, 20);

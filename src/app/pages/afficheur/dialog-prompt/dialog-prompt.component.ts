@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NbDialogRef } from '@nebular/theme';
-import {MonitorService} from '../../../services/monitor.service';
+import { MonitorService } from '../../../services/monitor.service';
 
 @Component({
   selector: 'ngx-dialog-prompt',
@@ -9,18 +9,33 @@ import {MonitorService} from '../../../services/monitor.service';
 })
 export class DialogPromptComponent implements OnInit {
 
-  constructor( private ref: NbDialogRef<DialogPromptComponent>, private service: MonitorService) {}
-
- 
-  
-  data : any;
+  constructor(private ref: NbDialogRef<DialogPromptComponent>,
+    private service: MonitorService) { }
 
 
-  d ;
+
+  data: any;
+
+
+  d;
   ngOnInit() {
-    this.service.getLayoutList().subscribe(res=>{
-      this.data =res;
-    });
+    this.service.getLayoutList().subscribe((res:any) => {
+      
+  
+    this.service.getMonitorList().subscribe((monitorList: any) => {
+      monitorList.forEach(element => {
+       res.forEach(element2 => {
+          if(element2.layoutGrid == element.layoutGrid){
+            element2.selected = true; 
+          }
+        });
+         
+      });
+    })
+    setTimeout(() => { this.data = res;},0);
+    
+
+  });
   }
 
   cancel() {
@@ -30,6 +45,6 @@ export class DialogPromptComponent implements OnInit {
   submit(d) {
     console.log(d);
     this.ref.close(d);
-   this.service.send(d);
+    this.service.send(d);
   }
 }

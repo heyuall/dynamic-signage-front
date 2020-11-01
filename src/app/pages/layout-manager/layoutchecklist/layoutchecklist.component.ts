@@ -70,8 +70,7 @@ export class LayoutchecklistComponent implements OnInit {
        console.log("maxSelection  : ",this.maxSelection )
        
        lay.data.components.forEach(comp =>{
-          data.forEach(elt=>{
-            
+          data.forEach(elt=>{            
             if(elt.id == comp.id){
               elt.selected = true;
             }

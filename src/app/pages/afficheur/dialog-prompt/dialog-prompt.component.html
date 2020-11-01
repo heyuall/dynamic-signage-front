@@ -14,7 +14,9 @@
     <nb-card-header>Layout choisi: {{d}}</nb-card-header>
     <nb-card-body>
         <nb-radio-group [(value)]="d">
-            <nb-radio *ngFor="let d of data" [value]="d.id">
+            <nb-radio *ngFor="let d of data" 
+            [value]="d.id"
+            [checked]="d.selected" >
                 {{d.name}}
             </nb-radio>
 
